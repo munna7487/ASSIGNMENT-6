@@ -188,14 +188,14 @@ const showbooksmarks = (bookmarks) => {
 
         // cart item div
         const cartItem = document.createElement('div');
-        cartItem.classList.add("flex", "justify-between", "items-center", "bg-white", "rounded-md", "p-2", "my-2");
+        cartItem.classList.add("flex", "justify-between", "items-center", "bg-white", "rounded-md", "p-4", "my-1");
         cartItem.innerHTML = `
             <div>
                 <h1 class="font-semibold">${bookmark.title}</h1>
                 <p class="text-green-700">${bookmark.prices}</p>
             </div>
             <div>
-                <p class="text-gray-500 cursor-pointer">
+                <p class="text-red-500 cursor-pointer">
                     <i class="fa-solid fa-xmark"></i>
                 </p>
             </div>
