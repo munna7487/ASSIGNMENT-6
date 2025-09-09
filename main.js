@@ -108,7 +108,7 @@ const allshownewsbycategory = (articles) => {
                     
                    <h1 onclick="loadworddetail(${article.id})" class="font-bold">${article.name}</h1>
 
-                        <p class="text-gray-500 h-[190px]">${article.description}</p>
+                        <p class="text-gray-500 h-[130px]">${article.description}</p>
                     </div>
                     <div class=" flex justify-between py-4">
                         
