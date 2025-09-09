@@ -102,13 +102,13 @@ const allshownewsbycategory = (articles) => {
         newscontainer.innerHTML += `
     <div class=" card bg-white p-2  h-[530px] mb-3">
                     <div>
-                        <img class="h-60 w-70 rounded-sm " src="${article.image}" alt="">
+                        <img class="h-60 w-70 rounded-sm text-xl font-medium" src="${article.image}" alt="">
                     </div>
                     <div class=" my-2">
                     
                    <h1 onclick="loadworddetail(${article.id})" class="font-bold">${article.name}</h1>
 
-                        <p class="text-gray-500 h-[130px]">${article.description}</p>
+                        <p class="text-gray-500 h-[190px]">${article.description}</p>
                     </div>
                     <div class=" flex justify-between py-4">
                         
@@ -128,22 +128,24 @@ const loadworddetail=async(id)=>{
     const details=await res.json();
     displayloadworddetail(details.plants)
 }
-const displayloadworddetail=(id)=>{
-    const detailscontainer=document.getElementById("details-container")
-  detailscontainer.innerHTML=`
-   <div class="card-container h-[250px] m-10 p-3   ">
-            <h1 class="font-bold text-xl">${id.name}</h1>
-            <div class="">
-                <img class="h-[100px] w-[150px] mt-3 mb-3" src="${id.image}" alt="">
-            </div>
-            <div class="space-y-3 text-sm">
-                <h4>category:${id.category}</h4>
-                <h2>price:${id.price}</h2>
-                <p><span>descriptio:</span>${id.description}</p>
-            </div>
-        </div>`
+const displayloadworddetail = (id) => {
+  const detailscontainer = document.getElementById("details-container");
+  detailscontainer.innerHTML = `
+    <div class="space-y-3">
+      <h1 class="font-bold text-xl ">${id.name}</h1>
+      <div class=" ">
+        <img class="w-full max-w-[250px] max-h-[150px] rounded-md mx-auto" src="${id.image}" >
+
+      </div>
+      <div class="space-y-2 text-sm">
+        <h4><span class="font-bold">Category:</span> ${id.category}</h4>
+        <h2><span class="font-bold">Price:</span> ${id.price}</h2>
+        <p><span class="font-bold">Description:</span> ${id.description}</p>
+      </div>
+    </div>`;
   document.getElementById("word_modal").showModal();
-}
+};
+
 
 
 ///crt display
@@ -204,7 +206,7 @@ const showbooksmarks = (bookmarks) => {
         // minus button click event
         const minusBtn = cartItem.querySelector("i");
         minusBtn.addEventListener('click', () => {
-            // total থেকে price বাদ
+            //
             bookmarks.splice(index, 1); // 
             showbooksmarks(bookmarks); //
         });
@@ -212,7 +214,7 @@ const showbooksmarks = (bookmarks) => {
         yourcartcontainer.appendChild(cartItem);
     });
 
-    // total update করা
+    
     const totalPrice = bookmarks.reduce((sum, b) => sum + parseInt(b.prices.slice(1)), 0);
     document.getElementById("totall").innerText = `৳${totalPrice}`;
 };
